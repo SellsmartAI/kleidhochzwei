@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            display: block;
+            
+        }
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        div{
+            margin: 10px;
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 15px;
+            padding: 10px;
+        }
+        h3{
+            font-size: 35px;
+        }
+        h4{
+            font-style: italic;
+            font-size: 35px;
+        }
+        h5{
+            font-size: 30px;
+        }
+        input{
+            padding: 5px;
+            border-radius: 10px;
+            margin: 5px;
+            
+        }
+        label{
+            font-size: 12px;
+        }
+
+        button{
+            display: block;
+            margin: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            padding: 15px;
+        }
+        img{
+            display: block;
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Kommissionsvertrag Generator</h1>
+    <form id="form" method="POST">
+
+        
+        <img src="https://le-cdn.website-editor.net/s/fc5a7b01fc5549269fe9a8ea4666f483/dms3rep/multi/opt/Logo_KH2_2023-RGB-742w.jpg?Expires=1693430405&Signature=S1rIqN~Rha38a7-B5VvKznU1d7Bloma0dQFnF8k9QLeuVSa~8Pqp8PbnhY4lkaUNr5RFFT7BYAIdWURn9mavDltIrWLkPis1DWtscc-5RP5W6UNulUFFev4Sh~ig6zi-B7NCYvPKxJTGHXOzkiaQHfZgY3AeJHVpsFMQL4MkhwRbZgsObpY1Y79y2XiZZviPW2jUQVsRb0cIykCKSHEseEZB1czko5h93P8p2StPsuDESzQorMhBBXW063USY4rP-8-hPmmj9iASuIprOmYgvgeqzp4ZZanjIJwfXquyWzxKFl2PxPUwZtZO25pRj2zsUmlWUhasv-TIRRIitp~jOg__&Key-Pair-Id=K2NXBXLF010TJW">
+        <div>
+            <label for="nummer">Kommissionsvertrag NR: </label>
+            <input type="text" id="nummer" name="nummer">
+        </div>
+        <div>
+            <label for="name">Name, Vorname</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="adress">Straße</label>
+            <input type="text" id="adress" name="adress">
+        </div>
+        <div>
+            <label for="plz">PLZ, Ort</label>
+            <input type="text" id="plz" name="plz">
+        </div>
+        <div>
+            <label for="mail">Mailadresse</label>
+            <input type="email" id="mail" name="mail">
+        </div>
+        <div>
+            <label for="phone">Telefon</label>
+            <input type="number" id="phone" name="phone">
+        </div>
+        <div>
+            <label for="iban">IBAN, (BIC)</label>
+            <input type="text" id="iban" name="iban">
+        </div>
+        <div>
+            <!-- Add an input field for image upload -->
+            <label for="image">Bild hochladen: </label>
+            <input type="file" id="image" name="image" accept="image/*">
+        </div>
+        
+        <h4>Brautkleid</h4>
+        <div>
+            <label for="solddate1">Verkauft am: </label>
+            <input type="date" id="solddate1" name="solddate1">
+        </div>
+        <div>
+            <label for="rück1">Rückgabe am: </label>
+            <input type="date" id="rück1" name="rück1">
+        </div>
+        <h4>Zusätzliche Artikel</h4>
+        <h5>1.</h5>
+        <div>
+            <label for="extraname1">Name:</label>
+            <input type="text" id="extraname1" name="extraname1">
+        </div>
+        <div>
+            <label for="solddate2">Verkauft am: </label>
+            <input type="date" id="solddate2" name="solddate2">
+        </div>
+        <div>
+            <label for="rück2">Rückgabe am: </label>
+            <input type="date" id="rück2" name="rück2">
+        </div>
+        <h5>2.</h5>
+        <div>
+            <label for="extraname2">Name:</label>
+            <input type="text" id="extraname2" name="extraname2">
+        </div>
+        <div>
+            <label for="solddate3">Verkauft am: </label>
+            <input type="date" id="solddate3" name="solddate3">
+        </div>
+        <div>
+            <label for="rück3">Rückgabe am: </label>
+            <input type="date" id="rück3" name="rück3">
+        </div>
+        <hr style="margin-top: 20px">
+        <h3>Anlage</h3>
+        <div>
+            <label for="kv">KV-Ende:</label>
+            <input type="date" id="kv" name="kv">
+        </div>
+        <div>
+            <label for="verl">Verl. bis:</label>
+            <input type="date" id="verl" name="verl">
+        </div>
+        <div>
+            <label for="rückgabe">Rückgabe</label>
+            <input type="text" id="rückgabe" name="rückgabe">
+        </div>
+
+      
+        <div>
+            <label for="typ">Typ, Marke/Modell</label>
+            <input type="text" id="typ" name="typ">
+        </div>
+        <div>
+            <label for="date">Kaufdatum</label>
+            <input type="date" id="date" name="date">
+        </div>
+        <div>
+            <label for="größe">Konfektionsgröße</label>
+            <input type="text" id="größe" name="größe">
+        </div>
+        <div>
+            <label for="mängel">Mängel</label>
+            <input type="text" id="mängel" name="mängel">
+        </div>
+        <div>
+            <label for="absatz">Körpergröße + Absatz</label>
+            <input type="text" id="absatz" name="absatz">
+        </div>
+        <div>
+            <label for="neupreis">Ursprünglicher Neupreis</label>
+            <input type="text" id="neupreis" name="neupreis">
+        </div>
+        <div>
+            <label for="Verkaufspreis">Neuer Verkaufspreis</label>
+            <input type="text" id="Verkaufspreis" name="Verkaufspreis">
+        </div>
+        <div>
+            <label for="abweichend">Abweichender Anteil</label>
+            <input type="text" id="abweichend" name="abweichend">
+        </div>
+        <div>
+            <label for="rechnung">Rechnung liegt vor?</label>
+            <input type="text" id="rechnung" name="rechnung">
+        </div>
+        <div>
+            <label for="post">Post/Persönliche Übergabe?</label>
+            <input type="text" id="post" name="post">
+        </div>
+        <div>
+            <label for="ungetragen">Ungetragen/Ungeändert?</label>
+            <input type="text" id="ungetragen" name="ungetragen">
+        </div>
+
+        <h2>Accessoires</h2>
+
+        <h3>Accessoires 1</h3>
+        <div>
+            <label for="typ2">Art, Marke/Modell</label>
+            <input type="text" id="typ2" name="typ2">
+        </div>
+        <div>
+            <label for="ursprünglich2">Ursprünglicher Neupreis</label>
+            <input type="text" id="ursprünglich2" name="ursprünglich2">
+        </div>
+        <div>
+            <label for="neu2">Neuer Verkaufspreis</label>
+            <input type="text" id="neu2" name="neu2">
+        </div>
+
+        <h3>Accessoires 2</h3>
+        <div>
+            <label for="typ3">Art, Marke/Modell</label>
+            <input type="text" id="typ3" name="typ3">
+        </div>
+        <div>
+            <label for="ursprünglich3">Ursprünglicher Neupreis</label>
+            <input type="text" id="ursprünglich3" name="ursprünglich3">
+        </div>
+        <div>
+            <label for="neu3">Neuer Verkaufspreis</label>
+            <input type="text" id="neu3" name="neu3">
+        </div>
+        <h3>Accessoires 3</h3>
+        <div>
+            <label for="typ4">Art, Marke/Modell</label>
+            <input type="text" id="typ4" name="typ4">
+        </div>
+        <div>
+            <label for="ursprünglich4">Ursprünglicher Neupreis</label>
+            <input type="text" id="ursprünglich4" name="ursprünglich4">
+        </div>
+        <div>
+            <label for="neu4">Neuer Verkaufspreis</label>
+            <input type="text" id="neu4" name="neu4">
+        </div>
+
+        <div>
+            <label for="location">Ort, Datum</label>
+            <input type="text" id="location" name="location">
+        </div>
+
+  
+ 
+            
+
+            <button style="font-size: 11px; padding: 10px; " type="submit">Daten speichern</button>
+      
+    </form>
+    <button type="button" onclick="generatePDF()">Gesamtes Dokument generieren</button>
+    <button type="button" onclick="generateLastPage()">Zusätzliche Anlage generieren</button>
+    <!-- Include the first version of jsPDF for generating the PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Include the second version of jsPDF for emoji support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+
+    <script>
+        function generateLastPage(){
+            const nummer = document.getElementById("nummer").value;
+    const name = document.getElementById("name").value;
+    const adress = document.getElementById("adress").value;
+    const plz = document.getElementById("plz").value;
+    const mail = document.getElementById("mail").value;
+    const phone = document.getElementById("phone").value;
+    const iban = document.getElementById("iban").value;
+    const kv = document.getElementById("kv").value;
+    const verl = document.getElementById("verl").value;
+    const rückgabe = document.getElementById("rückgabe").value;
+    const ende = kv;
+    const typ = document.getElementById("typ").value;
+
+    const rechnung = document.getElementById("rechnung").value;
+    const post = document.getElementById("post").value;
+    const ungetragen = document.getElementById("ungetragen").value;
+
+    const solddate1 = document.getElementById("solddate1").value;
+    const solddate2 = document.getElementById("solddate2").value;
+    const solddate3 = document.getElementById("solddate3").value;
+
+    const rück1 = document.getElementById("rück1").value;
+    const rück2 = document.getElementById("rück2").value;
+    const rück3= document.getElementById("rück3").value;
+
+    const extraname1 = document.getElementById("extraname1").value;
+    const extraname2 = document.getElementById("extraname2").value;
+
+
+
+    const date = document.getElementById("date").value;
+    const größe = document.getElementById("größe").value;
+    const mängel = document.getElementById("mängel").value;
+    const absatz = document.getElementById("absatz").value;
+    const neupreis = document.getElementById("neupreis").value;
+    const Verkaufspreis = document.getElementById("Verkaufspreis").value;
+    const abweichend = document.getElementById("abweichend").value;
+    const typ2 = document.getElementById("typ2").value;
+    const ursprünglich2 = document.getElementById("ursprünglich2").value;
+    const neu2 = document.getElementById("neu2").value;
+    const typ3 = document.getElementById("typ3").value;
+    const ursprünglich3 = document.getElementById("ursprünglich3").value;
+    const neu3 = document.getElementById("neu3").value;
+    const typ4 = document.getElementById("typ4").value;
+    const ursprünglich4 = document.getElementById("ursprünglich4").value;
+    const neu4 = document.getElementById("neu4").value;
+    const location = document.getElementById("location").value;
+
+    const pdf = new jsPDF();
+    let pageHeight = 250;
+    let currentY = 20;
+
+    // Function to add text on the current page and check available space
+    function addText(text, x, y) {
+       
+        pdf.text(text, x, y, {
+    maxWidth: 300,
+    align: 'justify'
+});
+    
+    }
+  // Check if an image is selected and insert it into the PDF
+  
+  
+    
+    const image = document.getElementById("image").files[0];
+    if (image) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            console.log("LOading the image");
+            const imageData = event.target.result;
+            //Seite 4
+pdf.setFontSize(21);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("bold");
+addText(`ANLAGE ARTIKEL ZU KV NR.: ${nummer}`, 20, 30);
+pdf.setFontSize(17);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("bold");
+addText("Brautkleid", 20, 50);
+pdf.setFontSize(12);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+
+addText("Typ, Marke/Modell: ", 20, 70)
+addText(typ, 80,70);
+
+addText("Rechnung liegt vor: ", 120, 65);
+addText(rechnung, 165, 65);
+
+addText("Art der Übergabe: ", 120, 75);
+addText(post, 165, 75);
+
+addText("Ungetragen/Ungeändert: ", 120, 85);
+addText(ungetragen, 175, 85);
+
+addText("Kaufdatum: ", 20, 85)
+addText(date, 80,85);
+
+addText("Konfektionsgröße ", 20, 100)
+addText(größe, 80,100);
+
+addText("Körpergröße + Absatz ", 120, 100)
+addText(absatz, 165,100);
+
+addText("Mängel: ", 20, 115)
+pdf.setFontSize(8);
+addText(mängel, 20,125);
+pdf.setFontSize(12);
+
+addText("Ursprünglicher Neupreis: ", 20,135)
+addText(neupreis, 80,135);
+
+addText("Neuer Verkaufspreis: ", 120, 135)
+addText(Verkaufspreis, 165,135);
+
+addText("Abweichender Anteil: ", 20, 145);
+addText(abweichend, 80, 145);
+
+pdf.setFontSize(14);
+pdf.setFontType("bold");
+addText("Accessoires", 20, 155);
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 165);
+addText(typ2, 80, 165);
+addText("Ursprünglicher Verkaufspreis: ", 20, 175);
+addText(ursprünglich2, 80, 175);
+addText("Neuer Verkaufspreis: ", 110, 175);
+addText(neu2, 155, 175);
+
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 190);
+addText(typ3, 80, 190);
+addText("Ursprünglicher Verkaufspreis: ", 20, 200);
+addText(ursprünglich3, 80, 200);
+addText("Neuer Verkaufspreis: ", 110, 200);
+addText(neu3, 155, 200);
+
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 215);
+addText(typ4, 80, 215);
+addText("Ursprünglicher Verkaufspreis: ", 20, 225);
+addText(ursprünglich4, 80, 225);
+addText("Neuer Verkaufspreis: ", 110, 225);
+addText(neu4, 155, 225);
+
+
+addText(location, 20, 250)
+pdf.setFontSize(10);
+addText("________________________________", 20, 251);
+pdf.setFontSize(9);
+addText("Ort, Datum", 20, 255);
+
+pdf.setFontSize(10);
+addText("________________________________", 20, 271);
+pdf.setFontSize(9);
+addText("Unterschrift kleidhochzwei", 20, 275);
+
+pdf.setFontSize(10);
+addText("________________________________", 120, 271);
+pdf.setFontSize(9);
+addText("Unterschrift Kommittentin", 120, 275);
+            pdf.save("personalized_pdf.pdf");
+        };
+        reader.readAsDataURL(image);
+    } else{
+
+//Seite 4
+
+pdf.setFontSize(21);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("bold");
+addText(`ANLAGE ARTIKEL ZU KV NR.: ${nummer}`, 20, 30);
+pdf.setFontSize(17);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("bold");
+addText("Brautkleid", 20, 50);
+pdf.setFontSize(12);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+
+addText("Typ, Marke/Modell: ", 20, 70)
+addText(typ, 80,70);
+
+addText("Rechnung liegt vor: ", 120, 65);
+addText(rechnung, 165, 65);
+
+addText("Art der Übergabe: ", 120, 75);
+addText(post, 165, 75);
+
+addText("Ungetragen/Ungeändert: ", 120, 85);
+addText(ungetragen, 175, 85);
+
+addText("Kaufdatum: ", 20, 85)
+addText(date, 80,85);
+
+addText("Konfektionsgröße ", 20, 100)
+addText(größe, 80,100);
+
+addText("Körpergröße + Absatz ", 120, 100)
+addText(absatz, 165,100);
+
+addText("Mängel: ", 20, 115)
+pdf.setFontSize(8);
+addText(mängel, 20,125);
+pdf.setFontSize(12);
+
+addText("Ursprünglicher Neupreis: ", 20,135)
+addText(neupreis, 80,135);
+
+addText("Neuer Verkaufspreis: ", 120, 135)
+addText(Verkaufspreis, 165,135);
+
+addText("Abweichender Anteil: ", 20, 145);
+addText(abweichend, 80, 145);
+
+pdf.setFontSize(14);
+pdf.setFontType("bold");
+addText("Accessoires", 20, 155);
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 165);
+addText(typ2, 80, 165);
+addText("Ursprünglicher Verkaufspreis: ", 20, 175);
+addText(ursprünglich2, 80, 175);
+addText("Neuer Verkaufspreis: ", 110, 175);
+addText(neu2, 155, 175);
+
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 190);
+addText(typ3, 80, 190);
+addText("Ursprünglicher Verkaufspreis: ", 20, 200);
+addText(ursprünglich3, 80, 200);
+addText("Neuer Verkaufspreis: ", 110, 200);
+addText(neu3, 155, 200);
+
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 215);
+addText(typ4, 80, 215);
+addText("Ursprünglicher Verkaufspreis: ", 20, 225);
+addText(ursprünglich4, 80, 225);
+addText("Neuer Verkaufspreis: ", 110, 225);
+addText(neu4, 155, 225);
+
+
+addText(location, 20, 250)
+pdf.setFontSize(10);
+addText("________________________________", 20, 251);
+pdf.setFontSize(9);
+addText("Ort, Datum", 20, 255);
+
+pdf.setFontSize(10);
+addText("________________________________", 20, 271);
+pdf.setFontSize(9);
+addText("Unterschrift kleidhochzwei", 20, 275);
+
+pdf.setFontSize(10);
+addText("________________________________", 120, 271);
+pdf.setFontSize(9);
+addText("Unterschrift Kommittentin", 120, 275);
+        pdf.save("personalized_pdf.pdf");
+    }
+}
+        
+       function generatePDF() {
+    const nummer = document.getElementById("nummer").value;
+    const name = document.getElementById("name").value;
+    const adress = document.getElementById("adress").value;
+    const plz = document.getElementById("plz").value;
+    const mail = document.getElementById("mail").value;
+    const phone = document.getElementById("phone").value;
+    const iban = document.getElementById("iban").value;
+    const kv = document.getElementById("kv").value;
+    const verl = document.getElementById("verl").value;
+    const rückgabe = document.getElementById("rückgabe").value;
+    const ende = kv;
+    const typ = document.getElementById("typ").value;
+
+    const rechnung = document.getElementById("rechnung").value;
+    const post = document.getElementById("post").value;
+    const ungetragen = document.getElementById("ungetragen").value;
+
+    const solddate1 = document.getElementById("solddate1").value;
+    const solddate2 = document.getElementById("solddate2").value;
+    const solddate3 = document.getElementById("solddate3").value;
+
+    const rück1 = document.getElementById("rück1").value;
+    const rück2 = document.getElementById("rück2").value;
+    const rück3= document.getElementById("rück3").value;
+
+    const extraname1 = document.getElementById("extraname1").value;
+    const extraname2 = document.getElementById("extraname2").value;
+
+
+
+    const date = document.getElementById("date").value;
+    const größe = document.getElementById("größe").value;
+    const mängel = document.getElementById("mängel").value;
+    const absatz = document.getElementById("absatz").value;
+    const neupreis = document.getElementById("neupreis").value;
+    const Verkaufspreis = document.getElementById("Verkaufspreis").value;
+    const abweichend = document.getElementById("abweichend").value;
+    const typ2 = document.getElementById("typ2").value;
+    const ursprünglich2 = document.getElementById("ursprünglich2").value;
+    const neu2 = document.getElementById("neu2").value;
+    const typ3 = document.getElementById("typ3").value;
+    const ursprünglich3 = document.getElementById("ursprünglich3").value;
+    const neu3 = document.getElementById("neu3").value;
+    const typ4 = document.getElementById("typ4").value;
+    const ursprünglich4 = document.getElementById("ursprünglich4").value;
+    const neu4 = document.getElementById("neu4").value;
+    const location = document.getElementById("location").value;
+
+    const pdf = new jsPDF();
+    let pageHeight = 250;
+    let currentY = 20;
+
+    // Function to add text on the current page and check available space
+    function addText(text, x, y) {
+       
+        pdf.text(text, x, y, {
+    maxWidth: 300,
+    align: 'justify'
+});
+    
+    }
+  // Check if an image is selected and insert it into the PDF
+  
+  
+    pdf.setFontSize(21);
+    pdf.setTextColor(154, 106, 94);
+    pdf.setFontType("bold");
+    addText(`Kommissionsvertrag NR.: ${nummer}`, 20, 30);
+    pdf.setFontSize(12);
+    pdf.setTextColor(0,0,0);
+    addText('Zwischen Kommissionär', 20, 50);
+    pdf.setFontType('normal');
+    addText("kleidhochzwei | Winkler & Kitt GbR \n Hauptstraße 48  \n 74243 Langenbrettach  \n --- nachfolgend kleidhochzwei genannt --", 75, 50)
+    pdf.setFontType("bold");
+    addText("und dem Kommittenten", 20, 80);
+    pdf.setFontSize(19);
+    pdf.setFontType("normal");
+    addText(name, 20, 95);
+    pdf.setFontSize(10);
+    addText(`KV-Ende: ${kv}`, 130, 80);
+    addText(`Verl. bis: ${verl}`, 130, 85);
+    addText(`Rückgabe: ${rückgabe}`, 130, 90);
+    pdf.setFontSize(9);
+    addText("___________________________________________________________", 20, 96);
+    addText("Name, Vorname", 20, 102);
+    
+    pdf.setFontSize(19);
+    pdf.setFontType("normal");
+    addText(adress, 20, 110);
+    pdf.setFontSize(9);
+    addText("___________________________________________________________", 20, 111);
+    addText("Straße", 20, 117);
+
+    pdf.setFontSize(19);
+    pdf.setFontType("normal");
+    addText(plz, 20, 125);
+    pdf.setFontSize(9);
+    addText("___________________________________________________________", 20, 126);
+    addText("PLZ, Ort", 20, 132);
+
+    pdf.setFontSize(19);
+    pdf.setFontType("normal");
+    addText(mail, 20, 140);
+    pdf.setFontSize(9);
+    addText("___________________________________________________________", 20, 141);
+    addText("Mailadresse", 20, 147);
+
+    pdf.setFontSize(19);
+    pdf.setFontType("normal");
+    addText(phone, 20, 155);
+    pdf.setFontSize(9);
+    addText("___________________________________________________________", 20, 156);
+    addText("Telefon", 20, 162);
+
+    pdf.setFontSize(19);
+    pdf.setFontType("normal");
+    addText(iban, 20, 170);
+    pdf.setFontSize(9);
+    addText("___________________________________________________________", 20, 171);
+    addText("IBAN, (BIC)", 20, 177);
+
+    pdf.setFontSize(13);
+    pdf.setFontType("bold");
+    addText("Brautkleid", 20, 200);
+    pdf.setFontType("normal");
+    pdf.setFontSize(11);
+    addText(`verkauft am: ${solddate1}`, 20, 210);
+    addText(`Rückgabe am: ${rück1}`, 75, 210);
+    addText("Unterschrift: ________________", 135, 210)
+
+    pdf.setFontSize(13);
+    pdf.setFontType("bold");
+    addText(extraname1, 20, 220);
+    pdf.setFontType("normal");
+    pdf.setFontSize(11);
+    addText(`verkauft am: ${solddate2}`, 20, 230);
+    addText(`Rückgabe am: ${rück2}`, 75, 230);
+    addText("Unterschrift: ________________", 135, 230)
+
+    pdf.setFontSize(13);
+    pdf.setFontType("bold");
+    addText(extraname2, 20, 240);
+    pdf.setFontType("normal");
+    pdf.setFontSize(11);
+    addText(`verkauft am: ${solddate3}`, 20, 250);
+    addText(`Rückgabe am: ${rück3}`, 75, 250);
+    addText("Unterschrift: ________________", 135, 250)
+
+
+    const image = document.getElementById("image").files[0];
+    if (image) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            console.log("LOading the image");
+            const imageData = event.target.result;
+            console.log(imageData);
+            pdf.addImage(imageData, "JPEG", 132, 100, 75, 95); // Adjust the position and size as needed
+            pdf.addPage();
+
+pdf.setFontSize(17);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("normal");
+addText(`Zustand der Kommissionsware`, 20, 30);
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText('1. Die Kommittentin bestätigt hiermit, dass die Angaben zur Kommissionsware gemäß Seite 4 des \n Kommissionsvertrages korrekt sind. kleidhochzwei behält sich vor, nach eingehender Prüfung der \n Ware, die Annahme zu verweigern. Die Prüfung erfolgt bei Übergabe. \n \n \n2. kleidhochzwei verpflichtet sich, das Kommissionsgut sorgfältig zu verwahren und sorgsam damit \numzugehen. Eine Pflicht zur Versicherung des Kommissionsgutes besteht nicht. Schäden und \nVerschmutzungen, die trotz sachgemäßer Lagerung und durch die Anproben entstehen, sind von einer \nHaftung ausgeschlossen.', 30, 40)
+
+pdf.setFontSize(17);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("normal");
+addText(`Dauer und Art der Kommission, Rechten und Pflichten`, 20, 100);
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText(`3. Die Kommittentin überlässt kleidhochzwei ihre gebrauchten Artikel in Kommission, zum Zweck des \n Verkaufs an Dritte, ab heute bis zum ${ende}. kleidhochzwei ist durch die \nKommittentin bevollmächtigt, die im Anhang aufgeführte Kommissionsware in anderem Namen zu \nverkaufen. Die Kommittentin bleibt dabei uneingeschränkte Eigentümerin der auf Seite 4 aufgeführten \nKommissionsware.  \n \n \n4. kleidhochzwei behält die Kommissionsware während dieser Zeit in den Verkaufsräumlichkeiten und \nbietet sie Dritten zum Kauf an. Es ist möglich und hiermit durch die Kommittentin erlaubt, die \nKommissionsware ggf. auf einer Veranstaltung, wie z.B. einer Messe, auszustellen. Es werden ggf. \nFotos gemacht und auf sozialen Medien wie z.B. Instagram oder Facebook publiziert. Dies ist jedoch \nkeine Pflicht für kleidhochzwei, sondern wird im Einzelfall eigenmächtig ohne Abstimmung mit der \nKommittentin entschieden. Es werden selbstverständlich keine Tragefotos des Kleides veröffentlicht, \nwelche die Kommittentin zeigen. \n \n \n5. Ein Privatverkauf durch die Kommittentin ist hiermit ausgeschlossen und ausdrücklich verboten. \n \n \n6. Die im Anhang aufgeführte Kommissionsware ist gegen Feuer, Wasser und Einbruchdiebstahl \nversichert.`, 30, 110);
+
+pdf.setFontSize(17);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("normal");
+addText(`Finanzielles`, 20, 205);
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText("7. Die Kommittentin bestimmt den Verkaufspreis gemeinsam mit kleidhochzwei. kleidhochzwei weicht \nvon diesem Preis, ohne zumindest einer mündlichen Absprache mit der Kommittentin, nicht ab. \n \n \n8. Für die aufgeführte Kommissionsware gilt der festgelegte angestrebte Verkaufspreis. Bei dem Preis \nhandelt es sich um einen Endpreis, d.h. kein Umsatzsteuerausweis nach §19 UStG. \n \n \n 9. kleidhochzwei erhält als Provision in der Regel 40 % des vereinbarten Verkaufspreises. Die restlichen \n 60 % werden der Kommittentin innerhalb von 10 Tagen nach Verkauf auf das o.g. Bankkonto überwiesen. \nSollten hier Sonderregelungen getroffen werden, sind sie entsprechend im Vertrag zu vermerken.", 30, 215);
+
+pdf.addPage();
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText("10. Kann die Kommissionsware nicht während des unter Ziffer 3 vereinbarten Zeitraums verkauft werden, \nnimmt kleidhochzwei Kontakt mit der Kommittentin auf. Es wird gemeinsam entschieden, ob die Frist \nverlängert wird oder das Kommissionsgut wieder zurück an die Kommittentin geht. Im Falle einer \nRücknahme durch diese, muss sie die Ware selbstständig abholen. Kann kleidhochzwei die \nKommittentin unter den oben genannten Kontaktmöglichkeiten nicht erreichen (beispielsweise wegen \nÄnderung der Adresse, Email oder Telefonnummer), geht o.a. Kommissionsware nach einer Frist von \nzwei Monaten in das Eigentum von kleidhochzwei über. \n \n \n 11. Wenn das Kleid per Post eingeht, trägt kleidhochzwei die Kosten des Rückversands im Falle eines \nNichtverkaufs. Sollte das Kleid vor offiziellem Vertragsende auf Wunsch der Kommittentin \nzurückgehen, werden die Kosten von dieser getragen inkl. kleiner Aufwandspauschale.", 30, 20);
+
+pdf.setFontSize(17);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("normal");
+addText(`Rechtliche Hinweise`, 20, 90);
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText("Die Gesellschaft ist eine Gesellschaft bürgerlichen Rechts. Sollte diese während der Kommissionsperiode \naufgelöst werden, behält sich kleidhochzwei das Recht vor, diesen Vertrag zu widerrufen. Die \nKommissionsware muss in diesem Fall innerhalb von 4 Wochen von der Kommittentin abgeholt werden. Sollte \ndies nicht möglich sein, kann kleidhochzwei die Kommissionsware ggf. an einem anderen Ort weitere 4 \nWochen lagern. Nach Ablauf dieser zweiten Frist, geht die Kommissionsware in das Eigentum von \nkleidhochzwei / den Gesellschaftern über. \n \nDieser Vertrag wurde in zwei Exemplaren ausgefertigt. Die Ausfertigung der Kommittentin ist als „Kopie“ \ngekennzeichnet.", 20, 100);
+
+pdf.setFontSize(17);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("normal");
+addText(`Salvatorische Klausel`, 20, 150);
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText("Sollte eine Bestimmung dieser Vereinbarung ganz oder teilweise unwirksam sein oder ihre Rechtswirksamkeit \nspäter verlieren, so soll hierdurch die Gültigkeit der übrigen Bestimmungen nicht berührt werden. Anstelle der \nunwirksamen Bestimmung soll im Wege der Vertragsanpassung eine andere angemessene Regelung gelten, die \nwirtschaftlich dem am nächsten kommt, was die Vertragsparteien gewollt hätten, wenn ihnen die \nUnwirksamkeit der Regelung bekannt gewesen wäre.", 20, 160);
+
+
+
+
+//Seite 4
+pdf.addPage();
+pdf.setFontSize(21);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("bold");
+addText(`ANLAGE ARTIKEL ZU KV NR.: ${nummer}`, 20, 30);
+pdf.setFontSize(17);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("bold");
+addText("Brautkleid", 20, 50);
+pdf.setFontSize(12);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+
+addText("Typ, Marke/Modell: ", 20, 70)
+addText(typ, 80,70);
+
+addText("Rechnung liegt vor: ", 120, 65);
+addText(rechnung, 165, 65);
+
+addText("Art der Übergabe: ", 120, 75);
+addText(post, 165, 75);
+
+addText("Ungetragen/Ungeändert: ", 120, 85);
+addText(ungetragen, 175, 85);
+
+addText("Kaufdatum: ", 20, 85)
+addText(date, 80,85);
+
+addText("Konfektionsgröße ", 20, 100)
+addText(größe, 80,100);
+
+addText("Körpergröße + Absatz ", 120, 100)
+addText(absatz, 165,100);
+
+addText("Mängel: ", 20, 115)
+pdf.setFontSize(8);
+addText(mängel, 20,125);
+pdf.setFontSize(12);
+
+addText("Ursprünglicher Neupreis: ", 20,135)
+addText(neupreis, 80,135);
+
+addText("Neuer Verkaufspreis: ", 120, 135)
+addText(Verkaufspreis, 165,135);
+
+addText("Abweichender Anteil: ", 20, 145);
+addText(abweichend, 80, 145);
+
+pdf.setFontSize(14);
+pdf.setFontType("bold");
+addText("Accessoires", 20, 155);
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 165);
+addText(typ2, 80, 165);
+addText("Ursprünglicher Verkaufspreis: ", 20, 175);
+addText(ursprünglich2, 80, 175);
+addText("Neuer Verkaufspreis: ", 110, 175);
+addText(neu2, 155, 175);
+
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 190);
+addText(typ3, 80, 190);
+addText("Ursprünglicher Verkaufspreis: ", 20, 200);
+addText(ursprünglich3, 80, 200);
+addText("Neuer Verkaufspreis: ", 110, 200);
+addText(neu3, 155, 200);
+
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 215);
+addText(typ4, 80, 215);
+addText("Ursprünglicher Verkaufspreis: ", 20, 225);
+addText(ursprünglich4, 80, 225);
+addText("Neuer Verkaufspreis: ", 110, 225);
+addText(neu4, 155, 225);
+
+
+addText(location, 20, 250)
+pdf.setFontSize(10);
+addText("________________________________", 20, 251);
+pdf.setFontSize(9);
+addText("Ort, Datum", 20, 255);
+
+pdf.setFontSize(10);
+addText("________________________________", 20, 271);
+pdf.setFontSize(9);
+addText("Unterschrift kleidhochzwei", 20, 275);
+
+pdf.setFontSize(10);
+addText("________________________________", 120, 271);
+pdf.setFontSize(9);
+addText("Unterschrift Kommittentin", 120, 275);
+            pdf.save("personalized_pdf.pdf");
+        };
+        reader.readAsDataURL(image);
+    } else{
+        pdf.addPage();
+
+pdf.setFontSize(17);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("normal");
+addText(`Zustand der Kommissionsware`, 20, 30);
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText('1. Die Kommittentin bestätigt hiermit, dass die Angaben zur Kommissionsware gemäß Seite 4 des \n Kommissionsvertrages korrekt sind. kleidhochzwei behält sich vor, nach eingehender Prüfung der \n Ware, die Annahme zu verweigern. Die Prüfung erfolgt bei Übergabe. \n \n \n2. kleidhochzwei verpflichtet sich, das Kommissionsgut sorgfältig zu verwahren und sorgsam damit \numzugehen. Eine Pflicht zur Versicherung des Kommissionsgutes besteht nicht. Schäden und \nVerschmutzungen, die trotz sachgemäßer Lagerung und durch die Anproben entstehen, sind von einer \nHaftung ausgeschlossen.', 30, 40)
+
+pdf.setFontSize(17);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("normal");
+addText(`Dauer und Art der Kommission, Rechten und Pflichten`, 20, 100);
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText(`3. Die Kommittentin überlässt kleidhochzwei ihre gebrauchten Artikel in Kommission, zum Zweck des \n Verkaufs an Dritte, ab heute bis zum ${ende}. kleidhochzwei ist durch die \nKommittentin bevollmächtigt, die im Anhang aufgeführte Kommissionsware in anderem Namen zu \nverkaufen. Die Kommittentin bleibt dabei uneingeschränkte Eigentümerin der auf Seite 4 aufgeführten \nKommissionsware.  \n \n \n4. kleidhochzwei behält die Kommissionsware während dieser Zeit in den Verkaufsräumlichkeiten und \nbietet sie Dritten zum Kauf an. Es ist möglich und hiermit durch die Kommittentin erlaubt, die \nKommissionsware ggf. auf einer Veranstaltung, wie z.B. einer Messe, auszustellen. Es werden ggf. \nFotos gemacht und auf sozialen Medien wie z.B. Instagram oder Facebook publiziert. Dies ist jedoch \nkeine Pflicht für kleidhochzwei, sondern wird im Einzelfall eigenmächtig ohne Abstimmung mit der \nKommittentin entschieden. Es werden selbstverständlich keine Tragefotos des Kleides veröffentlicht, \nwelche die Kommittentin zeigen. \n \n \n5. Ein Privatverkauf durch die Kommittentin ist hiermit ausgeschlossen und ausdrücklich verboten. \n \n \n6. Die im Anhang aufgeführte Kommissionsware ist gegen Feuer, Wasser und Einbruchdiebstahl \nversichert.`, 30, 110);
+
+pdf.setFontSize(17);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("normal");
+addText(`Finanzielles`, 20, 205);
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText("7. Die Kommittentin bestimmt den Verkaufspreis gemeinsam mit kleidhochzwei. kleidhochzwei weicht \nvon diesem Preis, ohne zumindest einer mündlichen Absprache mit der Kommittentin, nicht ab. \n \n \n8. Für die aufgeführte Kommissionsware gilt der festgelegte angestrebte Verkaufspreis. Bei dem Preis \nhandelt es sich um einen Endpreis, d.h. kein Umsatzsteuerausweis nach §19 UStG. \n \n \n 9. kleidhochzwei erhält als Provision in der Regel 40 % des vereinbarten Verkaufspreises. Die restlichen \n 60 % werden der Kommittentin innerhalb von 10 Tagen nach Verkauf auf das o.g. Bankkonto überwiesen. \nSollten hier Sonderregelungen getroffen werden, sind sie entsprechend im Vertrag zu vermerken.", 30, 215);
+
+pdf.addPage();
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText("10. Kann die Kommissionsware nicht während des unter Ziffer 3 vereinbarten Zeitraums verkauft werden, \nnimmt kleidhochzwei Kontakt mit der Kommittentin auf. Es wird gemeinsam entschieden, ob die Frist \nverlängert wird oder das Kommissionsgut wieder zurück an die Kommittentin geht. Im Falle einer \nRücknahme durch diese, muss sie die Ware selbstständig abholen. Kann kleidhochzwei die \nKommittentin unter den oben genannten Kontaktmöglichkeiten nicht erreichen (beispielsweise wegen \nÄnderung der Adresse, Email oder Telefonnummer), geht o.a. Kommissionsware nach einer Frist von \nzwei Monaten in das Eigentum von kleidhochzwei über. \n \n \n 11. Wenn das Kleid per Post eingeht, trägt kleidhochzwei die Kosten des Rückversands im Falle eines \nNichtverkaufs. Sollte das Kleid vor offiziellem Vertragsende auf Wunsch der Kommittentin \nzurückgehen, werden die Kosten von dieser getragen inkl. kleiner Aufwandspauschale.", 30, 20);
+
+pdf.setFontSize(17);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("normal");
+addText(`Rechtliche Hinweise`, 20, 90);
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText("Die Gesellschaft ist eine Gesellschaft bürgerlichen Rechts. Sollte diese während der Kommissionsperiode \naufgelöst werden, behält sich kleidhochzwei das Recht vor, diesen Vertrag zu widerrufen. Die \nKommissionsware muss in diesem Fall innerhalb von 4 Wochen von der Kommittentin abgeholt werden. Sollte \ndies nicht möglich sein, kann kleidhochzwei die Kommissionsware ggf. an einem anderen Ort weitere 4 \nWochen lagern. Nach Ablauf dieser zweiten Frist, geht die Kommissionsware in das Eigentum von \nkleidhochzwei / den Gesellschaftern über. \n \nDieser Vertrag wurde in zwei Exemplaren ausgefertigt. Die Ausfertigung der Kommittentin ist als „Kopie“ \ngekennzeichnet.", 20, 100);
+
+pdf.setFontSize(17);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("normal");
+addText(`Salvatorische Klausel`, 20, 150);
+pdf.setFontSize(10);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+addText("Sollte eine Bestimmung dieser Vereinbarung ganz oder teilweise unwirksam sein oder ihre Rechtswirksamkeit \nspäter verlieren, so soll hierdurch die Gültigkeit der übrigen Bestimmungen nicht berührt werden. Anstelle der \nunwirksamen Bestimmung soll im Wege der Vertragsanpassung eine andere angemessene Regelung gelten, die \nwirtschaftlich dem am nächsten kommt, was die Vertragsparteien gewollt hätten, wenn ihnen die \nUnwirksamkeit der Regelung bekannt gewesen wäre.", 20, 160);
+
+
+
+
+//Seite 4
+pdf.addPage();
+pdf.setFontSize(21);
+pdf.setTextColor(154, 106, 94);
+pdf.setFontType("bold");
+addText(`ANLAGE ARTIKEL ZU KV NR.: ${nummer}`, 20, 30);
+pdf.setFontSize(17);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("bold");
+addText("Brautkleid", 20, 50);
+pdf.setFontSize(12);
+pdf.setTextColor(0,0,0);
+pdf.setFontType("normal");
+
+addText("Typ, Marke/Modell: ", 20, 70)
+addText(typ, 80,70);
+
+addText("Rechnung liegt vor: ", 120, 65);
+addText(rechnung, 165, 65);
+
+addText("Art der Übergabe: ", 120, 75);
+addText(post, 165, 75);
+
+addText("Ungetragen/Ungeändert: ", 120, 85);
+addText(ungetragen, 175, 85);
+
+addText("Kaufdatum: ", 20, 85)
+addText(date, 80,85);
+
+addText("Konfektionsgröße ", 20, 100)
+addText(größe, 80,100);
+
+addText("Körpergröße + Absatz ", 120, 100)
+addText(absatz, 165,100);
+
+addText("Mängel: ", 20, 115)
+pdf.setFontSize(8);
+addText(mängel, 20,125);
+pdf.setFontSize(12);
+
+addText("Ursprünglicher Neupreis: ", 20,135)
+addText(neupreis, 80,135);
+
+addText("Neuer Verkaufspreis: ", 120, 135)
+addText(Verkaufspreis, 165,135);
+
+addText("Abweichender Anteil: ", 20, 145);
+addText(abweichend, 80, 145);
+
+pdf.setFontSize(14);
+pdf.setFontType("bold");
+addText("Accessoires", 20, 155);
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 165);
+addText(typ2, 80, 165);
+addText("Ursprünglicher Verkaufspreis: ", 20, 175);
+addText(ursprünglich2, 80, 175);
+addText("Neuer Verkaufspreis: ", 110, 175);
+addText(neu2, 155, 175);
+
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 190);
+addText(typ3, 80, 190);
+addText("Ursprünglicher Verkaufspreis: ", 20, 200);
+addText(ursprünglich3, 80, 200);
+addText("Neuer Verkaufspreis: ", 110, 200);
+addText(neu3, 155, 200);
+
+pdf.setFontSize(12);
+pdf.setFontType("normal");
+addText("Art, Marke/Modell: ", 20, 215);
+addText(typ4, 80, 215);
+addText("Ursprünglicher Verkaufspreis: ", 20, 225);
+addText(ursprünglich4, 80, 225);
+addText("Neuer Verkaufspreis: ", 110, 225);
+addText(neu4, 155, 225);
+
+
+addText(location, 20, 250)
+pdf.setFontSize(10);
+addText("________________________________", 20, 251);
+pdf.setFontSize(9);
+addText("Ort, Datum", 20, 255);
+
+pdf.setFontSize(10);
+addText("________________________________", 20, 271);
+pdf.setFontSize(9);
+addText("Unterschrift kleidhochzwei", 20, 275);
+
+pdf.setFontSize(10);
+addText("________________________________", 120, 271);
+pdf.setFontSize(9);
+addText("Unterschrift Kommittentin", 120, 275);
+        pdf.save("personalized_pdf.pdf");
+    }
+  
+   
+   
+       
+    
+
+
+    /*addText(`IBAN, (BIC): ${iban}`, 10, 80);
+    addText(`KV-Ende: ${kv}`, 10, 90);
+    addText(`Verl. bis: ${verl}`, 10, 100);
+    addText(`Rückgabe: ${rückgabe}`, 10, 110);
+    addText(`Ende des KV: ${ende}`, 10, 120);
+
+
+    
+
+    addText(`Ort, Datum: ${location}`, 10, 300);*/
+
+  
+}
+
+
+    </script>
+</body>
+</html>
