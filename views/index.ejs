@@ -297,6 +297,8 @@
     </script>
     <script>
         function generateLastPage(){
+           
+            
             const nummer = document.getElementById("nummer").value;
     const name = document.getElementById("name").value;
     const adress = document.getElementById("adress").value;
@@ -318,10 +320,6 @@
 
 
 
-
-
-
-
     const date = document.getElementById("date").value;
     const größe = document.getElementById("größe").value;
     const mängel = document.getElementById("mängel").value;
@@ -329,15 +327,16 @@
     const neupreis = document.getElementById("neupreis").value;
     const Verkaufspreis = document.getElementById("Verkaufspreis").value;
     const abweichend = document.getElementById("abweichend").value;
-    const typ2 = document.getElementById("typ2").value;
+    /*const typ2 = document.getElementById("typ2").value;
     const ursprünglich2 = document.getElementById("ursprünglich2").value;
     const neu2 = document.getElementById("neu2").value;
     const typ3 = document.getElementById("typ3").value;
     const ursprünglich3 = document.getElementById("ursprünglich3").value;
-    const neu3 = document.getElementById("neu3").value;
+    const neu3 = document.getElementById("neu3").value;*/
 
     const location = document.getElementById("location").value;
     const kvvom = document.getElementById("kvvom").value;
+    const bemerkungen = document.getElementById("bemerkungen").value;
 
     const pdf = new jsPDF();
     let pageHeight = 250;
@@ -346,10 +345,7 @@
     // Function to add text on the current page and check available space
     function addText(text, x, y) {
        
-        pdf.text(text, x, y, {
-    maxWidth: 300,
-    align: 'justify'
-});
+        pdf.text(text, x, y);
     
     }
   // Check if an image is selected and insert it into the PDF
@@ -360,9 +356,11 @@
     if (image) {
         const reader = new FileReader();
         reader.onload = function (event) {
-            console.log("LOading the image");
+            console.log("Loading the image");
             const imageData = event.target.result;
-            //Seite 4
+            
+
+    //Seite 4
 pdf.setFontSize(21);
 pdf.setTextColor(154, 106, 94);
 pdf.setFontType("bold");
@@ -410,9 +408,9 @@ addText(Verkaufspreis, 165,135);
 addText("Abweichender Anteil: ", 20, 145);
 addText(abweichend, 80, 145);
 
-/*pdf.setFontSize(14);
+pdf.setFontSize(14);
 pdf.setFontType("bold");
-addText("Accessoires", 20, 155);
+/*addText("Accessoires", 20, 155);
 pdf.setFontSize(12);
 pdf.setFontType("normal");
 addText("Art, Marke/Modell: ", 20, 165);
@@ -431,11 +429,11 @@ addText(ursprünglich3, 80, 200);
 addText("Neuer Verkaufspreis: ", 110, 200);
 addText(neu3, 155, 200);*/
 
+
 addText("Bemerkungen", 20, 180);
 pdf.setFontSize(8);
 addText(bemerkungen, 20, 200);
 pdf.setFontSize(12);
-
 
 pdf.setFontType("normal");
 addText(`${kvvom}, `, 20, 240)
@@ -461,9 +459,11 @@ var canvas = document.getElementById("signature-pad-2");
 // Add the signature image to the PDF
 pdf.addImage(imgData, 'PNG', 20, 250, 40, 20); // Adjust the position and size as needed
 
+
 pdf.setFontSize(10);
 addText("________________________________", 120, 271);
 pdf.setFontSize(9);
+
 addText("Unterschrift Kommittentin", 120, 275);
 
 var pdfBase64 = pdf.output('datauristring');
