@@ -60,6 +60,7 @@
     <title>Document</title>
 </head>
 <body>
+    
     <h1>Kommissionsvertrag Generator</h1>
     <form id="form" method="POST">
 
@@ -98,57 +99,20 @@
             <label for="image">Bild hochladen: </label>
             <input type="file" id="image" name="image" accept="image/*">
         </div>
+        <div style="opacity: 0;">
+            <label for="anl">Anlage ausgefüllt</label>
+            <input type="text" id="anl" name="anl">
+        </div>
         
-        <h4>Brautkleid</h4>
-        <div>
-            <label for="solddate1">Verkauft am: </label>
-            <input type="date" id="solddate1" name="solddate1">
-        </div>
-        <div>
-            <label for="rück1">Rückgabe am: </label>
-            <input type="date" id="rück1" name="rück1">
-        </div>
-        <h4>Zusätzliche Artikel</h4>
-        <h5>1.</h5>
-        <div>
-            <label for="extraname1">Name:</label>
-            <input type="text" id="extraname1" name="extraname1">
-        </div>
-        <div>
-            <label for="solddate2">Verkauft am: </label>
-            <input type="date" id="solddate2" name="solddate2">
-        </div>
-        <div>
-            <label for="rück2">Rückgabe am: </label>
-            <input type="date" id="rück2" name="rück2">
-        </div>
-        <h5>2.</h5>
-        <div>
-            <label for="extraname2">Name:</label>
-            <input type="text" id="extraname2" name="extraname2">
-        </div>
-        <div>
-            <label for="solddate3">Verkauft am: </label>
-            <input type="date" id="solddate3" name="solddate3">
-        </div>
-        <div>
-            <label for="rück3">Rückgabe am: </label>
-            <input type="date" id="rück3" name="rück3">
-        </div>
+        
+        
         <hr style="margin-top: 20px">
         <h3>Anlage</h3>
         <div>
             <label for="kv">KV-Ende:</label>
             <input type="date" id="kv" name="kv">
         </div>
-        <div>
-            <label for="verl">Verl. bis:</label>
-            <input type="date" id="verl" name="verl">
-        </div>
-        <div>
-            <label for="rückgabe">Rückgabe</label>
-            <input type="text" id="rückgabe" name="rückgabe">
-        </div>
+
 
       
         <div>
@@ -196,7 +160,7 @@
             <input type="text" id="ungetragen" name="ungetragen">
         </div>
 
-        <h2>Accessoires</h2>
+       <!-- <h2>Accessoires</h2>
 
         <h3>Accessoires 1</h3>
         <div>
@@ -225,24 +189,20 @@
             <label for="neu3">Neuer Verkaufspreis</label>
             <input type="text" id="neu3" name="neu3">
         </div>
-        <h3>Accessoires 3</h3>
-        <div>
-            <label for="typ4">Art, Marke/Modell</label>
-            <input type="text" id="typ4" name="typ4">
-        </div>
-        <div>
-            <label for="ursprünglich4">Ursprünglicher Neupreis</label>
-            <input type="text" id="ursprünglich4" name="ursprünglich4">
-        </div>
-        <div>
-            <label for="neu4">Neuer Verkaufspreis</label>
-            <input type="text" id="neu4" name="neu4">
-        </div>
+       <div>-->
+        <label for="bemerkungen">Bemerkungen:</label>
+            <input type="text" id="bemerkungen" name="bemerkungen">
+       </div>
 
         <div>
-            <label for="location">Ort, Datum</label>
+            <label for="location">Ort</label>
             <input type="text" id="location" name="location">
         </div>
+        <div>
+            <label for="kvvom">Datum</label>
+            <input type="date" id="kvvom" name="kvvom">
+        </div>
+       
 
   
  
@@ -251,6 +211,47 @@
             <button style="font-size: 11px; padding: 10px; " type="submit">Daten speichern</button>
       
     </form>
+    <h4>Unterschrift Kommittentin</h4>
+    <div class="flex-row">
+        <div class="wrapper">
+            <canvas id="signature-pad-1" width="400" height="200"></canvas>
+        </div>
+        <div class="clear-btn">
+            <button id="clear-1"><span> Clear </span></button>
+        </div>
+    </div>
+    
+    <h4>Unterschrift kleidhochzwei</h4>
+    <div class="flex-row">
+        <div class="wrapper">
+            <canvas id="signature-pad-2" width="400" height="200"></canvas>
+        </div>
+        <div class="clear-btn">
+            <button id="clear-2"><span> Clear </span></button>
+        </div>
+    </div>
+    <script>
+        const typInput = document.getElementById('typ');
+        const anlInput = document.getElementById('anl');
+    
+        function updateAnlInput() {
+            // Check if the "typ" input contains any value
+            if (typInput.value.trim() !== '') {
+                // If it contains a value, set "x" in the "anl" input
+                anlInput.value = 'x';
+            } else {
+                // If it doesn't contain a value, set "-" in the "anl" input
+                anlInput.value = '-';
+            }
+        }
+    
+        // Add an event listener to the "typ" input to trigger the update when it changes
+        typInput.addEventListener('input', updateAnlInput);
+    
+        // Initial update of the "anl" input based on the initial value of "typ" input
+        updateAnlInput();
+    </script>
+
     <button type="button" onclick="generatePDF()">Gesamtes Dokument generieren</button>
     <button type="button" onclick="generateLastPage()">Zusätzliche Anlage generieren</button>
     <!-- Include the first version of jsPDF for generating the PDF -->
@@ -258,7 +259,42 @@
 
     <!-- Include the second version of jsPDF for emoji support -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.5/signature_pad.min.js" integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+           var canvas1 = document.getElementById("signature-pad-1");
+    var canvas2 = document.getElementById("signature-pad-2");
 
+    function resizeCanvas() {
+        var ratio = Math.max(1, 1);
+        canvas1.width = canvas1.offsetWidth * ratio;
+        canvas1.height = canvas1.offsetHeight * ratio;
+        canvas1.getContext("2d").scale(ratio, ratio);
+
+        canvas2.width = canvas2.offsetWidth * ratio;
+        canvas2.height = canvas2.offsetHeight * ratio;
+        canvas2.getContext("2d").scale(ratio, ratio);
+    }
+
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+
+    var signaturePad1 = new SignaturePad(canvas1, {
+        backgroundColor: 'rgb(250,250,250)'
+    });
+    
+    var signaturePad2 = new SignaturePad(canvas2, {
+        backgroundColor: 'rgb(250,250,250)'
+    });
+
+    document.getElementById("clear-1").addEventListener('click', function () {
+        signaturePad1.clear();
+    });
+
+    document.getElementById("clear-2").addEventListener('click', function () {
+        signaturePad2.clear();
+    });
+           
+    </script>
     <script>
         function generateLastPage(){
             const nummer = document.getElementById("nummer").value;
@@ -269,8 +305,7 @@
     const phone = document.getElementById("phone").value;
     const iban = document.getElementById("iban").value;
     const kv = document.getElementById("kv").value;
-    const verl = document.getElementById("verl").value;
-    const rückgabe = document.getElementById("rückgabe").value;
+
     const ende = kv;
     const typ = document.getElementById("typ").value;
 
@@ -278,16 +313,12 @@
     const post = document.getElementById("post").value;
     const ungetragen = document.getElementById("ungetragen").value;
 
-    const solddate1 = document.getElementById("solddate1").value;
-    const solddate2 = document.getElementById("solddate2").value;
-    const solddate3 = document.getElementById("solddate3").value;
 
-    const rück1 = document.getElementById("rück1").value;
-    const rück2 = document.getElementById("rück2").value;
-    const rück3= document.getElementById("rück3").value;
 
-    const extraname1 = document.getElementById("extraname1").value;
-    const extraname2 = document.getElementById("extraname2").value;
+
+
+
+
 
 
 
@@ -304,10 +335,9 @@
     const typ3 = document.getElementById("typ3").value;
     const ursprünglich3 = document.getElementById("ursprünglich3").value;
     const neu3 = document.getElementById("neu3").value;
-    const typ4 = document.getElementById("typ4").value;
-    const ursprünglich4 = document.getElementById("ursprünglich4").value;
-    const neu4 = document.getElementById("neu4").value;
+
     const location = document.getElementById("location").value;
+    const kvvom = document.getElementById("kvvom").value;
 
     const pdf = new jsPDF();
     let pageHeight = 250;
@@ -380,7 +410,7 @@ addText(Verkaufspreis, 165,135);
 addText("Abweichender Anteil: ", 20, 145);
 addText(abweichend, 80, 145);
 
-pdf.setFontSize(14);
+/*pdf.setFontSize(14);
 pdf.setFontType("bold");
 addText("Accessoires", 20, 155);
 pdf.setFontSize(12);
@@ -399,34 +429,55 @@ addText(typ3, 80, 190);
 addText("Ursprünglicher Verkaufspreis: ", 20, 200);
 addText(ursprünglich3, 80, 200);
 addText("Neuer Verkaufspreis: ", 110, 200);
-addText(neu3, 155, 200);
+addText(neu3, 155, 200);*/
 
+addText("Bemerkungen", 20, 180);
+pdf.setFontSize(8);
+addText(bemerkungen, 20, 200);
 pdf.setFontSize(12);
+
+
 pdf.setFontType("normal");
-addText("Art, Marke/Modell: ", 20, 215);
-addText(typ4, 80, 215);
-addText("Ursprünglicher Verkaufspreis: ", 20, 225);
-addText(ursprünglich4, 80, 225);
-addText("Neuer Verkaufspreis: ", 110, 225);
-addText(neu4, 155, 225);
-
-
-addText(location, 20, 250)
+addText(`${kvvom}, `, 20, 240)
+addText(location, 43, 240)
 pdf.setFontSize(10);
-addText("________________________________", 20, 251);
+addText("________________________________", 20, 241);
 pdf.setFontSize(9);
-addText("Ort, Datum", 20, 255);
+addText("Datum, Ort", 20, 245);
 
 pdf.setFontSize(10);
 addText("________________________________", 20, 271);
 pdf.setFontSize(9);
 addText("Unterschrift kleidhochzwei", 20, 275);
 
+//Die zwei Unterschriften hinzufügen
+var canvas = document.getElementById("signature-pad-1");
+        var imgData = canvas.toDataURL(); // Capture the signature as an image data URI
+// Add the signature image to the PDF
+pdf.addImage(imgData, 'PNG', 120, 250, 40, 20); // Adjust the position and size as needed
+
+var canvas = document.getElementById("signature-pad-2");
+        var imgData = canvas.toDataURL(); // Capture the signature as an image data URI
+// Add the signature image to the PDF
+pdf.addImage(imgData, 'PNG', 20, 250, 40, 20); // Adjust the position and size as needed
+
 pdf.setFontSize(10);
 addText("________________________________", 120, 271);
 pdf.setFontSize(9);
 addText("Unterschrift Kommittentin", 120, 275);
-            pdf.save("personalized_pdf.pdf");
+
+var pdfBase64 = pdf.output('datauristring');
+
+
+var currentTime = new Date()
+
+var year = currentTime.getFullYear();
+pdf.save(`Kommissionsvertrag_${nummer}/${year}`);
+    
+       
+        
+        
+        
         };
         reader.readAsDataURL(image);
     } else{
@@ -480,57 +531,55 @@ addText(Verkaufspreis, 165,135);
 addText("Abweichender Anteil: ", 20, 145);
 addText(abweichend, 80, 145);
 
-pdf.setFontSize(14);
-pdf.setFontType("bold");
-addText("Accessoires", 20, 155);
+
+
+
+addText("Bemerkungen", 20, 180);
+pdf.setFontSize(8);
+addText(bemerkungen, 20, 200);
 pdf.setFontSize(12);
+
 pdf.setFontType("normal");
-addText("Art, Marke/Modell: ", 20, 165);
-addText(typ2, 80, 165);
-addText("Ursprünglicher Verkaufspreis: ", 20, 175);
-addText(ursprünglich2, 80, 175);
-addText("Neuer Verkaufspreis: ", 110, 175);
-addText(neu2, 155, 175);
-
-pdf.setFontSize(12);
-pdf.setFontType("normal");
-addText("Art, Marke/Modell: ", 20, 190);
-addText(typ3, 80, 190);
-addText("Ursprünglicher Verkaufspreis: ", 20, 200);
-addText(ursprünglich3, 80, 200);
-addText("Neuer Verkaufspreis: ", 110, 200);
-addText(neu3, 155, 200);
-
-pdf.setFontSize(12);
-pdf.setFontType("normal");
-addText("Art, Marke/Modell: ", 20, 215);
-addText(typ4, 80, 215);
-addText("Ursprünglicher Verkaufspreis: ", 20, 225);
-addText(ursprünglich4, 80, 225);
-addText("Neuer Verkaufspreis: ", 110, 225);
-addText(neu4, 155, 225);
-
-
-addText(location, 20, 250)
+addText(`${kvvom}, `, 20, 240)
+addText(location, 43, 240)
 pdf.setFontSize(10);
-addText("________________________________", 20, 251);
+addText("________________________________", 20, 241);
 pdf.setFontSize(9);
-addText("Ort, Datum", 20, 255);
+addText("Datum, Ort", 20, 245);
 
 pdf.setFontSize(10);
 addText("________________________________", 20, 271);
 pdf.setFontSize(9);
 addText("Unterschrift kleidhochzwei", 20, 275);
+//Die zwei Unterschriften hinzufügen
+var canvas = document.getElementById("signature-pad-1");
+        var imgData = canvas.toDataURL(); // Capture the signature as an image data URI
+// Add the signature image to the PDF
+pdf.addImage(imgData, 'PNG', 120, 250, 40, 20); // Adjust the position and size as needed
+
+var canvas = document.getElementById("signature-pad-2");
+        var imgData = canvas.toDataURL(); // Capture the signature as an image data URI
+// Add the signature image to the PDF
+pdf.addImage(imgData, 'PNG', 20, 250, 40, 20); // Adjust the position and size as needed
 
 pdf.setFontSize(10);
 addText("________________________________", 120, 271);
 pdf.setFontSize(9);
 addText("Unterschrift Kommittentin", 120, 275);
-        pdf.save("personalized_pdf.pdf");
+
+var pdfBase64 = pdf.output('datauristring');
+
+
+var currentTime = new Date()
+
+var year = currentTime.getFullYear();
+pdf.save(`Kommissionsvertrag_${nummer}/${year}`);
     }
 }
         
        function generatePDF() {
+
+
     const nummer = document.getElementById("nummer").value;
     const name = document.getElementById("name").value;
     const adress = document.getElementById("adress").value;
@@ -539,8 +588,7 @@ addText("Unterschrift Kommittentin", 120, 275);
     const phone = document.getElementById("phone").value;
     const iban = document.getElementById("iban").value;
     const kv = document.getElementById("kv").value;
-    const verl = document.getElementById("verl").value;
-    const rückgabe = document.getElementById("rückgabe").value;
+
     const ende = kv;
     const typ = document.getElementById("typ").value;
 
@@ -548,16 +596,8 @@ addText("Unterschrift Kommittentin", 120, 275);
     const post = document.getElementById("post").value;
     const ungetragen = document.getElementById("ungetragen").value;
 
-    const solddate1 = document.getElementById("solddate1").value;
-    const solddate2 = document.getElementById("solddate2").value;
-    const solddate3 = document.getElementById("solddate3").value;
 
-    const rück1 = document.getElementById("rück1").value;
-    const rück2 = document.getElementById("rück2").value;
-    const rück3= document.getElementById("rück3").value;
 
-    const extraname1 = document.getElementById("extraname1").value;
-    const extraname2 = document.getElementById("extraname2").value;
 
 
 
@@ -568,16 +608,16 @@ addText("Unterschrift Kommittentin", 120, 275);
     const neupreis = document.getElementById("neupreis").value;
     const Verkaufspreis = document.getElementById("Verkaufspreis").value;
     const abweichend = document.getElementById("abweichend").value;
-    const typ2 = document.getElementById("typ2").value;
+    /*const typ2 = document.getElementById("typ2").value;
     const ursprünglich2 = document.getElementById("ursprünglich2").value;
     const neu2 = document.getElementById("neu2").value;
     const typ3 = document.getElementById("typ3").value;
     const ursprünglich3 = document.getElementById("ursprünglich3").value;
-    const neu3 = document.getElementById("neu3").value;
-    const typ4 = document.getElementById("typ4").value;
-    const ursprünglich4 = document.getElementById("ursprünglich4").value;
-    const neu4 = document.getElementById("neu4").value;
+    const neu3 = document.getElementById("neu3").value;*/
+
     const location = document.getElementById("location").value;
+    const kvvom = document.getElementById("kvvom").value;
+    const bemerkungen = document.getElementById("bemerkungen").value;
 
     const pdf = new jsPDF();
     let pageHeight = 250;
@@ -595,6 +635,10 @@ addText("Unterschrift Kommittentin", 120, 275);
   // Check if an image is selected and insert it into the PDF
   
   
+
+  var img = new Image()
+img.src = 'data:image/jpeg;base64,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BERAREQEREBERATk7EBERAREQEREBERAREQEREBERAREQERED//Z'
+pdf.addImage(img, 'png', 140, 20, 60, 19)
     pdf.setFontSize(21);
     pdf.setTextColor(154, 106, 94);
     pdf.setFontType("bold");
@@ -611,8 +655,8 @@ addText("Unterschrift Kommittentin", 120, 275);
     addText(name, 20, 95);
     pdf.setFontSize(10);
     addText(`KV-Ende: ${kv}`, 130, 80);
-    addText(`Verl. bis: ${verl}`, 130, 85);
-    addText(`Rückgabe: ${rückgabe}`, 130, 90);
+    addText(`Verl. bis: `, 130, 85);
+    addText(`Rückgabe: `, 130, 90);
     pdf.setFontSize(9);
     addText("___________________________________________________________", 20, 96);
     addText("Name, Vorname", 20, 102);
@@ -657,26 +701,26 @@ addText("Unterschrift Kommittentin", 120, 275);
     addText("Brautkleid", 20, 200);
     pdf.setFontType("normal");
     pdf.setFontSize(11);
-    addText(`verkauft am: ${solddate1}`, 20, 210);
-    addText(`Rückgabe am: ${rück1}`, 75, 210);
+    addText(`verkauft am: `, 20, 210);
+    addText(`Rückgabe am: `, 75, 210);
     addText("Unterschrift: ________________", 135, 210)
 
     pdf.setFontSize(13);
     pdf.setFontType("bold");
-    addText(extraname1, 20, 220);
+    addText("", 20, 220);
     pdf.setFontType("normal");
     pdf.setFontSize(11);
-    addText(`verkauft am: ${solddate2}`, 20, 230);
-    addText(`Rückgabe am: ${rück2}`, 75, 230);
+    addText(`verkauft am: `, 20, 230);
+    addText(`Rückgabe am: `, 75, 230);
     addText("Unterschrift: ________________", 135, 230)
 
     pdf.setFontSize(13);
     pdf.setFontType("bold");
-    addText(extraname2, 20, 240);
+    addText("", 20, 240);
     pdf.setFontType("normal");
     pdf.setFontSize(11);
-    addText(`verkauft am: ${solddate3}`, 20, 250);
-    addText(`Rückgabe am: ${rück3}`, 75, 250);
+    addText(`verkauft am: `, 20, 250);
+    addText(`Rückgabe am: `, 75, 250);
     addText("Unterschrift: ________________", 135, 250)
 
 
@@ -793,54 +837,52 @@ addText(Verkaufspreis, 165,135);
 addText("Abweichender Anteil: ", 20, 145);
 addText(abweichend, 80, 145);
 
-pdf.setFontSize(14);
-pdf.setFontType("bold");
-addText("Accessoires", 20, 155);
+
+
+
+
+addText("Bemerkungen", 20, 180);
+pdf.setFontSize(8);
+addText(bemerkungen, 20, 200);
 pdf.setFontSize(12);
+
 pdf.setFontType("normal");
-addText("Art, Marke/Modell: ", 20, 165);
-addText(typ2, 80, 165);
-addText("Ursprünglicher Verkaufspreis: ", 20, 175);
-addText(ursprünglich2, 80, 175);
-addText("Neuer Verkaufspreis: ", 110, 175);
-addText(neu2, 155, 175);
-
-pdf.setFontSize(12);
-pdf.setFontType("normal");
-addText("Art, Marke/Modell: ", 20, 190);
-addText(typ3, 80, 190);
-addText("Ursprünglicher Verkaufspreis: ", 20, 200);
-addText(ursprünglich3, 80, 200);
-addText("Neuer Verkaufspreis: ", 110, 200);
-addText(neu3, 155, 200);
-
-pdf.setFontSize(12);
-pdf.setFontType("normal");
-addText("Art, Marke/Modell: ", 20, 215);
-addText(typ4, 80, 215);
-addText("Ursprünglicher Verkaufspreis: ", 20, 225);
-addText(ursprünglich4, 80, 225);
-addText("Neuer Verkaufspreis: ", 110, 225);
-addText(neu4, 155, 225);
-
-
-addText(location, 20, 250)
+addText(`${kvvom}, `, 20, 240)
+addText(location, 43, 240)
 pdf.setFontSize(10);
-addText("________________________________", 20, 251);
+addText("________________________________", 20, 241);
 pdf.setFontSize(9);
-addText("Ort, Datum", 20, 255);
+addText("Datum, Ort", 20, 245);
 
 pdf.setFontSize(10);
 addText("________________________________", 20, 271);
 pdf.setFontSize(9);
 addText("Unterschrift kleidhochzwei", 20, 275);
+//Die zwei Unterschriften hinzufügen
+var canvas = document.getElementById("signature-pad-1");
+        var imgData = canvas.toDataURL(); // Capture the signature as an image data URI
+// Add the signature image to the PDF
+pdf.addImage(imgData, 'PNG', 120, 250, 40, 20); // Adjust the position and size as needed
+
+var canvas = document.getElementById("signature-pad-2");
+        var imgData = canvas.toDataURL(); // Capture the signature as an image data URI
+// Add the signature image to the PDF
+pdf.addImage(imgData, 'PNG', 20, 250, 40, 20); // Adjust the position and size as needed
+
 
 pdf.setFontSize(10);
 addText("________________________________", 120, 271);
 pdf.setFontSize(9);
 addText("Unterschrift Kommittentin", 120, 275);
-            pdf.save("personalized_pdf.pdf");
-        };
+
+var pdfBase64 = pdf.output('datauristring');
+
+
+var currentTime = new Date()
+
+var year = currentTime.getFullYear();
+        pdf.save(`Kommissionsvertrag_${nummer}/${year}`);
+    };
         reader.readAsDataURL(image);
     } else{
         pdf.addPage();
@@ -950,7 +992,7 @@ addText(abweichend, 80, 145);
 
 pdf.setFontSize(14);
 pdf.setFontType("bold");
-addText("Accessoires", 20, 155);
+/*addText("Accessoires", 20, 155);
 pdf.setFontSize(12);
 pdf.setFontType("normal");
 addText("Art, Marke/Modell: ", 20, 165);
@@ -967,34 +1009,52 @@ addText(typ3, 80, 190);
 addText("Ursprünglicher Verkaufspreis: ", 20, 200);
 addText(ursprünglich3, 80, 200);
 addText("Neuer Verkaufspreis: ", 110, 200);
-addText(neu3, 155, 200);
+addText(neu3, 155, 200);*/
 
+
+addText("Bemerkungen", 20, 180);
+pdf.setFontSize(8);
+addText(bemerkungen, 20, 200);
 pdf.setFontSize(12);
+
 pdf.setFontType("normal");
-addText("Art, Marke/Modell: ", 20, 215);
-addText(typ4, 80, 215);
-addText("Ursprünglicher Verkaufspreis: ", 20, 225);
-addText(ursprünglich4, 80, 225);
-addText("Neuer Verkaufspreis: ", 110, 225);
-addText(neu4, 155, 225);
-
-
-addText(location, 20, 250)
+addText(`${kvvom}, `, 20, 240)
+addText(location, 43, 240)
 pdf.setFontSize(10);
-addText("________________________________", 20, 251);
+addText("________________________________", 20, 241);
 pdf.setFontSize(9);
-addText("Ort, Datum", 20, 255);
+addText("Datum, Ort", 20, 245);
 
 pdf.setFontSize(10);
 addText("________________________________", 20, 271);
 pdf.setFontSize(9);
 addText("Unterschrift kleidhochzwei", 20, 275);
 
+//Die zwei Unterschriften hinzufügen
+var canvas = document.getElementById("signature-pad-1");
+        var imgData = canvas.toDataURL(); // Capture the signature as an image data URI
+// Add the signature image to the PDF
+pdf.addImage(imgData, 'PNG', 120, 250, 40, 20); // Adjust the position and size as needed
+
+var canvas = document.getElementById("signature-pad-2");
+        var imgData = canvas.toDataURL(); // Capture the signature as an image data URI
+// Add the signature image to the PDF
+pdf.addImage(imgData, 'PNG', 20, 250, 40, 20); // Adjust the position and size as needed
+
+
 pdf.setFontSize(10);
 addText("________________________________", 120, 271);
 pdf.setFontSize(9);
+
 addText("Unterschrift Kommittentin", 120, 275);
-        pdf.save("personalized_pdf.pdf");
+
+var pdfBase64 = pdf.output('datauristring');
+
+
+var currentTime = new Date()
+
+var year = currentTime.getFullYear();
+pdf.save(`Kommissionsvertrag_${nummer}/${year}`);
     }
   
    
