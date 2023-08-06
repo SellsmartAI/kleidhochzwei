@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 app.post("/", async (req, res) => {
 
 
-    const{nummer, name, adress, plz, mail, phone, iban} = req.body;
+    const{nummer, kvvom, kv, name, mail, post, anl, Verkaufspreis} = req.body;
 
 
 
@@ -58,7 +58,7 @@ app.post("/", async (req, res) => {
         valueInputOption: "USER_ENTERED",
         resource: {
             values: [
-                [nummer, name, adress, plz, mail, phone, iban]
+                [nummer, kvvom, kv, name, mail, post, anl, Verkaufspreis]
             ],
         },
 
